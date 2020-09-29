@@ -25,11 +25,11 @@ steps:
 
 - task: gulp@1
   inputs:
-    gulpFile: 'sts/Skoruba.IdentityServer4.STS.Identity/gulpfile.js' 
+    gulpFile: 'src/Skoruba.IdentityServer4.STS.Identity/gulpfile.js' 
 
 - task: gulp@1
   inputs:
-    gulpFile: 'Admin/Skoruba.IdentityServer4.Admin/gulpfile.js' 
+    gulpFile: 'src/Skoruba.IdentityServer4.Admin/gulpfile.js' 
 
 - task: DotNetCoreCLI@2
   inputs:
