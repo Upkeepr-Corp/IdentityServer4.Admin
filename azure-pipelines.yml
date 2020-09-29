@@ -23,9 +23,7 @@ steps:
   inputs:
     restoreSolution: '$(solution)'
 
-- task: Npm@1
-  inputs:
-    command: 'install'
+- script: sudo npm install -g
 
 - task: gulp@1
   inputs:
