@@ -27,7 +27,8 @@ function processScripts() {
 			'./Scripts/App/components/Menu.js',
 			'./Scripts/App/components/Language.js',
             './Scripts/App/components/Theme.js',
-            './Scripts/App/components/CookieConsent.js'
+            './Scripts/App/components/CookieConsent.js',
+            './Scripts/App/components/common.js'
 		])
 		.pipe(concat('bundle.min.js'))
 		.pipe(uglify())
@@ -36,8 +37,14 @@ function processScripts() {
 
 function processFonts() {
 	return gulp
-		.src(['./node_modules/font-awesome/fonts/**', './node_modules/open-iconic/font/fonts/**'])
+		.src(['./node_modules/font-awesome/fonts/**', './node_modules/open-iconic/font/fonts/**', 'Styles/fonts/**/*'])
 		.pipe(gulp.dest(`${distFolder}fonts/`));
+}
+
+function processImages() {
+	return gulp
+		.src(['Styles/img/*'])
+		.pipe(gulp.dest(`${distFolder}img/`));
 }
 
 function processSass() {
@@ -72,12 +79,13 @@ function processStyles() {
 }
 
 var buildStyles = gulp.series(processStyles, processSass, processSassMin);
-var build = gulp.parallel(buildStyles, processScripts);
+var build = gulp.parallel(processFonts, processImages, buildStyles, processScripts);
 
 gulp.task('clean', processClean);
 gulp.task('styles', buildStyles);
 gulp.task('sass', processSass);
 gulp.task('sass:min', processSassMin);
 gulp.task('fonts', processFonts);
+gulp.task('images', processImages);
 gulp.task('scripts', processScripts);
 gulp.task('build', build);
