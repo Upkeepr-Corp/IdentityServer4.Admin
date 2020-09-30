@@ -6,35 +6,49 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Content Remove="wwwroot\dist\fonts\Roboto-Bold\Roboto-Bold.eot" />
-      <Content Remove="wwwroot\dist\fonts\Roboto-Bold\Roboto-Bold.svg" />
-      <Content Remove="wwwroot\dist\fonts\Roboto-Bold\Roboto-Bold.ttf" />
-      <Content Remove="wwwroot\dist\fonts\Roboto-Bold\Roboto-Bold.woff" />
-      <Content Remove="wwwroot\dist\fonts\Roboto-Light\Roboto-Light.eot" />
-      <Content Remove="wwwroot\dist\fonts\Roboto-Light\Roboto-Light.svg" />
-      <Content Remove="wwwroot\dist\fonts\Roboto-Light\Roboto-Light.ttf" />
-      <Content Remove="wwwroot\dist\fonts\Roboto-Light\Roboto-Light.woff" />
-      <Content Remove="wwwroot\dist\fonts\Roboto-Medium\Roboto-Medium.eot" />
-      <Content Remove="wwwroot\dist\fonts\Roboto-Medium\Roboto-Medium.svg" />
-      <Content Remove="wwwroot\dist\fonts\Roboto-Medium\Roboto-Medium.ttf" />
-      <Content Remove="wwwroot\dist\fonts\Roboto-Medium\Roboto-Medium.woff" />
-      <Content Remove="wwwroot\dist\fonts\Roboto-Regular\Roboto-Regular.eot" />
-      <Content Remove="wwwroot\dist\fonts\Roboto-Regular\Roboto-Regular.svg" />
-      <Content Remove="wwwroot\dist\fonts\Roboto-Regular\Roboto-Regular.ttf" />
-      <Content Remove="wwwroot\dist\fonts\Roboto-Regular\Roboto-Regular.woff" />
-      <Content Remove="wwwroot\dist\fonts\Roboto\LICENSE.txt" />
-      <Content Remove="wwwroot\dist\fonts\Roboto\Roboto-Black.ttf" />
-      <Content Remove="wwwroot\dist\fonts\Roboto\Roboto-BlackItalic.ttf" />
-      <Content Remove="wwwroot\dist\fonts\Roboto\Roboto-BoldItalic.ttf" />
-      <Content Remove="wwwroot\dist\fonts\Roboto\Roboto-Italic.ttf" />
-      <Content Remove="wwwroot\dist\fonts\Roboto\Roboto-LightItalic.ttf" />
-      <Content Remove="wwwroot\dist\fonts\Roboto\Roboto-MediumItalic.ttf" />
-      <Content Remove="wwwroot\dist\fonts\Roboto\Roboto-Thin.ttf" />
-      <Content Remove="wwwroot\dist\fonts\Roboto\Roboto-ThinItalic.ttf" />
-      <Content Remove="wwwroot\dist\fonts\Scripts\App\components\CookieConsent.js" />
-      <Content Remove="wwwroot\dist\fonts\Scripts\App\components\Language.js" />
-      <Content Remove="wwwroot\dist\fonts\Scripts\App\components\Menu.js" />
-      <Content Remove="wwwroot\dist\fonts\Scripts\App\components\Theme.js" />
+      <Content Remove="Styles\fonts\Roboto-Bold\Roboto-Bold.eot" />
+      <Content Remove="Styles\fonts\Roboto-Bold\Roboto-Bold.svg" />
+      <Content Remove="Styles\fonts\Roboto-Bold\Roboto-Bold.ttf" />
+      <Content Remove="Styles\fonts\Roboto-Bold\Roboto-Bold.woff" />
+      <Content Remove="Styles\fonts\Roboto-Light\Roboto-Light.eot" />
+      <Content Remove="Styles\fonts\Roboto-Light\Roboto-Light.svg" />
+      <Content Remove="Styles\fonts\Roboto-Light\Roboto-Light.ttf" />
+      <Content Remove="Styles\fonts\Roboto-Light\Roboto-Light.woff" />
+      <Content Remove="Styles\fonts\Roboto-Medium\Roboto-Medium.eot" />
+      <Content Remove="Styles\fonts\Roboto-Medium\Roboto-Medium.svg" />
+      <Content Remove="Styles\fonts\Roboto-Medium\Roboto-Medium.ttf" />
+      <Content Remove="Styles\fonts\Roboto-Medium\Roboto-Medium.woff" />
+      <Content Remove="Styles\fonts\Roboto-Regular\Roboto-Regular.eot" />
+      <Content Remove="Styles\fonts\Roboto-Regular\Roboto-Regular.svg" />
+      <Content Remove="Styles\fonts\Roboto-Regular\Roboto-Regular.ttf" />
+      <Content Remove="Styles\fonts\Roboto-Regular\Roboto-Regular.woff" />
+      <Content Remove="Styles\fonts\Roboto\LICENSE.txt" />
+      <Content Remove="Styles\fonts\Roboto\Roboto-Black.ttf" />
+      <Content Remove="Styles\fonts\Roboto\Roboto-BlackItalic.ttf" />
+      <Content Remove="Styles\fonts\Roboto\Roboto-BoldItalic.ttf" />
+      <Content Remove="Styles\fonts\Roboto\Roboto-Italic.ttf" />
+      <Content Remove="Styles\fonts\Roboto\Roboto-LightItalic.ttf" />
+      <Content Remove="Styles\fonts\Roboto\Roboto-MediumItalic.ttf" />
+      <Content Remove="Styles\fonts\Roboto\Roboto-Thin.ttf" />
+      <Content Remove="Styles\fonts\Roboto\Roboto-ThinItalic.ttf" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="Styles\img\apple-ico.svg" />
+      <Content Include="Styles\img\apple-logo-svgrepo-com.svg" />
+      <Content Include="Styles\img\facebook-ico.svg" />
+      <Content Include="Styles\img\forgot-left.svg" />
+      <Content Include="Styles\img\google-ico.svg" />
+      <Content Include="Styles\img\LoginPage-left.svg" />
+      <Content Include="Styles\img\microsoft-ico.svg" />
+      <Content Include="Styles\img\PasswordPage.svg" />
+      <Content Include="Styles\img\Registration-left.svg" />
+      <Content Include="Styles\img\skoruba-ico.png" />
+      <Content Include="Styles\img\skoruba-icon.png" />
+      <Content Include="Styles\img\UpKeeprButtonIcon.svg" />
+      <Content Include="Styles\img\UpKeepr_Icon.svg" />
+      <Content Include="Styles\img\UpKeepr_Icon_ColorString.svg" />
+      <Content Include="Styles\img\UpKeepr_Wordmark.svg" />
     </ItemGroup>
 
     <ItemGroup>
@@ -86,49 +100,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <None Include="wwwroot\dist\fonts\Roboto-Bold\Roboto-Bold.eot" />
-      <None Include="wwwroot\dist\fonts\Roboto-Bold\Roboto-Bold.svg" />
-      <None Include="wwwroot\dist\fonts\Roboto-Bold\Roboto-Bold.ttf" />
-      <None Include="wwwroot\dist\fonts\Roboto-Bold\Roboto-Bold.woff" />
-      <None Include="wwwroot\dist\fonts\Roboto-Light\Roboto-Light.eot" />
-      <None Include="wwwroot\dist\fonts\Roboto-Light\Roboto-Light.svg" />
-      <None Include="wwwroot\dist\fonts\Roboto-Light\Roboto-Light.ttf" />
-      <None Include="wwwroot\dist\fonts\Roboto-Light\Roboto-Light.woff" />
-      <None Include="wwwroot\dist\fonts\Roboto-Medium\Roboto-Medium.eot" />
-      <None Include="wwwroot\dist\fonts\Roboto-Medium\Roboto-Medium.svg" />
-      <None Include="wwwroot\dist\fonts\Roboto-Medium\Roboto-Medium.ttf" />
-      <None Include="wwwroot\dist\fonts\Roboto-Medium\Roboto-Medium.woff" />
-      <None Include="wwwroot\dist\fonts\Roboto-Regular\Roboto-Regular.eot" />
-      <None Include="wwwroot\dist\fonts\Roboto-Regular\Roboto-Regular.svg" />
-      <None Include="wwwroot\dist\fonts\Roboto-Regular\Roboto-Regular.ttf" />
-      <None Include="wwwroot\dist\fonts\Roboto-Regular\Roboto-Regular.woff" />
-      <None Include="wwwroot\dist\fonts\Roboto\LICENSE.txt" />
-      <None Include="wwwroot\dist\fonts\Roboto\Roboto-Black.ttf" />
-      <None Include="wwwroot\dist\fonts\Roboto\Roboto-BlackItalic.ttf" />
-      <None Include="wwwroot\dist\fonts\Roboto\Roboto-BoldItalic.ttf" />
-      <None Include="wwwroot\dist\fonts\Roboto\Roboto-Italic.ttf" />
-      <None Include="wwwroot\dist\fonts\Roboto\Roboto-LightItalic.ttf" />
-      <None Include="wwwroot\dist\fonts\Roboto\Roboto-MediumItalic.ttf" />
-      <None Include="wwwroot\dist\fonts\Roboto\Roboto-Thin.ttf" />
-      <None Include="wwwroot\dist\fonts\Roboto\Roboto-ThinItalic.ttf" />
-      <None Include="wwwroot\dist\fonts\Scripts\App\components\CookieConsent.js" />
-      <None Include="wwwroot\dist\fonts\Scripts\App\components\Language.js" />
-      <None Include="wwwroot\dist\fonts\Scripts\App\components\Menu.js" />
-      <None Include="wwwroot\dist\fonts\Scripts\App\components\Theme.js" />
-      <None Include="wwwroot\dist\img\apple-ico.svg" />
-      <None Include="wwwroot\dist\img\apple-logo-svgrepo-com.svg" />
-      <None Include="wwwroot\dist\img\facebook-ico.svg" />
-      <None Include="wwwroot\dist\img\google-ico.svg" />
-      <None Include="wwwroot\dist\img\LoginPage-left.svg" />
-      <None Include="wwwroot\dist\img\microsoft-ico.svg" />
-      <None Include="wwwroot\dist\img\PasswordPage.svg" />
-      <None Include="wwwroot\dist\img\Registration-left.svg" />
-      <None Include="wwwroot\dist\img\skoruba-ico.png" />
-      <None Include="wwwroot\dist\img\skoruba-icon.png" />
-      <None Include="wwwroot\dist\img\UpKeeprButtonIcon.svg" />
-      <None Include="wwwroot\dist\img\UpKeepr_Icon.svg" />
-      <None Include="wwwroot\dist\img\UpKeepr_Icon_ColorString.svg" />
-      <None Include="wwwroot\dist\img\UpKeepr_Wordmark.svg" />
+      <Folder Include="wwwroot\dist\" />
     </ItemGroup>
 
 </Project>
