@@ -8,40 +8,20 @@
         }
     });
     $(".common-input").val(function () {
-        var x = $(this).val();
-        console.log('x', x);
-        if (x == '') {
-            $(this).removeClass('nonempty');
-        }
-        else {
-            $(this).addClass('nonempty');
-        }
+        inputUp(this)
     });
 
-    $(".common-input").keydown(function () {
-        var x = $(this).val();
-        if (x == '') {
-            $(this).removeClass('nonempty');
-        }
-        else {
-            $(this).addClass('nonempty');
-        }
+    $(".common-input").change(function () {
+        inputUp(this);
     });
 
-    setTimeout(function () {
-        $(".common-input").each(function (index, item) {
-            var x = $(item).val();
-            console.log(x);
-            console.log(item);
-            if (x == '') {
-                $(this).removeClass('nonempty');
-            }
-            else {
-                $(this).addClass('nonempty');
-            }
-        });
-    }, 2000);
-
-
-
+    function inputUp(v) {
+        var x = $(v).val();
+        if (x == '') {
+            $(v).removeClass('nonempty');
+        }
+        else {
+            $(v).addClass('nonempty');
+        }
+    }
 };
