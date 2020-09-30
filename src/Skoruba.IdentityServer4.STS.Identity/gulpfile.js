@@ -88,4 +88,4 @@ gulp.task('sass:min', processSassMin);
 gulp.task('fonts', processFonts);
 gulp.task('images', processImages);
 gulp.task('scripts', processScripts);
-gulp.task('build', build);
+gulp.task('default', build);

@@ -23,6 +23,26 @@ steps:
   inputs:
     restoreSolution: '$(solution)'
 
+- task: Npm@1
+  inputs:
+    command: 'install'
+    workingDir: 'src/Skoruba.IdentityServer4.STS.Identity' 
+
+- task: gulp@1
+  inputs:
+    gulpFile: 'src/Skoruba.IdentityServer4.STS.Identity/gulpfile.js' 
+    workingDirectory: 'src/Skoruba.IdentityServer4.STS.Identity'
+
+- task: Npm@1
+  inputs:
+    command: 'install'
+    workingDir: 'src/Skoruba.IdentityServer4.Admin' 
+
+- task: gulp@1
+  inputs:
+    gulpFile: 'src/Skoruba.IdentityServer4.Admin/gulpfile.js' 
+    workingDirectory: 'src/Skoruba.IdentityServer4.Admin'
+
 - task: DotNetCoreCLI@2
   inputs:
     command: build
