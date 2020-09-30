@@ -30,7 +30,8 @@ steps:
 
 - task: gulp@1
   inputs:
-    gulpFile: 'src/Skoruba.IdentityServer4.STS.Identity/gulpfile.js' 
+    # gulpFile: 'gulpfile.js' 
+    workingDirectory: 'src/Skoruba.IdentityServer4.STS.Identity'
 
 - task: Npm@1
   inputs:
@@ -39,7 +40,8 @@ steps:
 
 - task: gulp@1
   inputs:
-    gulpFile: 'src/Skoruba.IdentityServer4.Admin/gulpfile.js' 
+    # gulpFile: 'gulpfile.js' 
+    workingDirectory: 'src/Skoruba.IdentityServer4.Admin'
 
 - task: DotNetCoreCLI@2
   inputs:
