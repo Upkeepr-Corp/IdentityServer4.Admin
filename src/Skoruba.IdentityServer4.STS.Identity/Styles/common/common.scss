@@ -231,6 +231,7 @@ h5 {
 
     &.disabled {
         background-color: $onSurface3;
+        cursor: not-allowed;
     }
 }
 
@@ -303,7 +304,7 @@ main {
     }
 
     &__mr_bottom {
-        margin-bottom: 64px;
+        margin-bottom: 30px;
     }
 }
 

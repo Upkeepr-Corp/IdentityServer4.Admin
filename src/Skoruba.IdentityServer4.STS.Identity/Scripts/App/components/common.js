@@ -8,20 +8,31 @@
         }
     });
     $(".common-input").val(function () {
-        inputUp(this)
+        labelUp(this);
+        checkValidation();
     });
 
     $(".common-input").change(function () {
-        inputUp(this);
+        labelUp(this);
+        checkValidation();
     });
 
-    function inputUp(v) {
+    function labelUp(v) {
         var x = $(v).val();
         if (x == '') {
             $(v).removeClass('nonempty');
         }
         else {
             $(v).addClass('nonempty');
+        }
+    }
+    function checkValidation() {
+        var valid = $('form').valid();
+        if (valid) {
+            $('form button').removeClass('disabled');
+        }
+        else {
+            $('form button').addClass('disabled');
         }
     }
 };
