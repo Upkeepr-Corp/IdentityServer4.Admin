@@ -2,7 +2,7 @@
 @inject IViewLocalizer Localizer
 @model Skoruba.IdentityServer4.STS.Identity.ViewModels.Account.LogoutViewModel
 
-<div class="logout-container">
+@*<div class="logout-container">
 	<div class="page-header">
 		<h1>@Localizer["Title"]</h1>
 	</div>
@@ -20,4 +20,36 @@
 			</form>
 		</div>
 	</div>
-</div>
+</div>*@
+
+<main class="d-flex align-items-stretch">
+    <div class="fixed-wrap forgot-left"></div>
+    <div class="stretch-wrap">
+        <div class="logo logo__mr_bottom">
+            <img src="../dist/img/UpKeepr_Wordmark.svg" alt="">
+        </div>
+        <div>
+            @await Html.PartialAsync("_ValidationSummary")
+        </div>
+        <h5 class="text-center">Logout?</h5>
+        <form asp-controller="Account" asp-action="Logout" method="post">
+            <input type="hidden" name="logoutId" value="@Model.LogoutId" />
+            <div class="row row__my mx-0 align-items-center">
+                <div class="col-12 col-sm-6 px-0 pr-sm-2">
+                </div>
+                <div class="col-12 col-sm-6 px-0 pt-3 pt-sm-0 pl-sm-2">
+                    <button class="common-button" type="submit">
+                        Logout
+                        <span class="common-icon pl-1">
+                            <svg width="13" height="12" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6.5 6.91406e-07L5.4425 1.0575L9.6275 5.25L0.5 5.25L0.5 6.75L9.6275 6.75L5.435 10.935L6.5 12L12.5 6L6.5 6.91406e-07Z" fill="white" />
+                            </svg>
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </form>
+        <div class="footer-small text-center">
+        </div>
+    </div>
+</main>

@@ -61,6 +61,7 @@
     color: black;
     text-decoration: none;
 }
+
 body {
     font-size: $size-body2;
     font-family: $regularFont;
@@ -158,7 +159,13 @@ button {
 }
 
 /* active state */
-.common-input:focus ~ label{
+.common-input:focus ~ label {
+    top: -15px;
+    font-size: 9px;
+    color: $primary;
+}
+
+.common-input:-webkit-autofill ~ label {
     top: -15px;
     font-size: 9px;
     color: $primary;
@@ -224,6 +231,7 @@ h5 {
 
     &.disabled {
         background-color: $onSurface3;
+        cursor: not-allowed;
     }
 }
 
@@ -268,6 +276,7 @@ main {
 
 .social-access {
     flex-wrap: wrap;
+
     &__button {
         display: inline-block;
         border: 1px solid $onSurface;
@@ -295,7 +304,7 @@ main {
     }
 
     &__mr_bottom {
-        margin-bottom: 64px;
+        margin-bottom: 30px;
     }
 }
 
@@ -310,4 +319,8 @@ main {
         margin-top: 30px;
         margin-bottom: 30px;
     }
+}
+.header{
+    display: flex;
+    float: right;
 }
