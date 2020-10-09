@@ -311,7 +311,15 @@ main {
 .footer-small {
     border-top: 1px solid $onSurface3;
     padding-top: 14px;
-    margin-top: 94px;
+    margin-top: 74px;
+}
+
+.footer-small.login {
+    margin-top: 162px;
+}
+
+.footer-small.forgot {
+    margin-top: 390px;
 }
 
 .row {
