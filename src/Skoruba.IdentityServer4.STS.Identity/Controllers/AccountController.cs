@@ -257,9 +257,10 @@ namespace Skoruba.IdentityServer4.STS.Identity.Controllers
 
         [HttpGet]
         [AllowAnonymous]
-        public IActionResult ForgotPassword()
+        public IActionResult ForgotPassword(string returnUrl)
         {
-            return View();
+            var vm = new ForgotPasswordViewModel { ReturnUrl = returnUrl };
+            return View(vm);
         }
 
         [HttpPost]
@@ -585,7 +586,7 @@ namespace Skoruba.IdentityServer4.STS.Identity.Controllers
             // If we got this far, something failed, redisplay form
             return View(model);
         }
-        
+
 
         /*****************************************/
         /* helper APIs for the AccountController */

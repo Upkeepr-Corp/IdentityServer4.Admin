@@ -7,5 +7,6 @@ namespace Skoruba.IdentityServer4.STS.Identity.ViewModels.Account
         [Required]
         [EmailAddress]
         public string Email { get; set; }
+        public string ReturnUrl { get; set; }
     }
 }

@@ -323,6 +323,8 @@ main {
 .header{
     display: flex;
     float: right;
+    position: absolute;
+    right: 0;
 }
 .row.margin ,
 .card-deck.margin {

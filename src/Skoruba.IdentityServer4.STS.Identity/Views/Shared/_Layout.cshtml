@@ -41,40 +41,44 @@
     <div class="upkeepr">
         @if (User.Identity.IsAuthenticated && !string.IsNullOrEmpty(name))
         {
-            <div class="header">
-                <vc:identity-server-admin-link></vc:identity-server-admin-link>
+        <div class="header">
+            <vc:identity-server-admin-link></vc:identity-server-admin-link>
 
-                <!--Menu item -->
-                <div class="menu-item my-2 my-md-0 mr-md-3 dropdown">
-                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                        @Localizer["Settings"] - @name
-                    </button>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" asp-controller="Manage" asp-action="Index">@Localizer["ManageProfile"]</a>
-                        <a class="dropdown-item" asp-controller="Manage" asp-action="PersonalData">@Localizer["ManagePersonalData"]</a>
-                        @if (hasExternalLogins)
-                        {
-                            <a class="dropdown-item" asp-controller="Manage" asp-action="ExternalLogins">@Localizer["ExternalLogins"]</a>
-                        }
-                        <a class="dropdown-item" asp-controller="Manage" asp-action="TwoFactorAuthentication">@Localizer["2FA"]</a>
-                        <a class="dropdown-item" asp-controller="Manage" asp-action="ChangePassword">@Localizer["ChangePassword"]</a>
-                        <a class="dropdown-item" asp-controller="Grants" asp-action="Index">@Localizer["Grants"]</a>
-                    </div>
-                </div>
-
-                <a class="menu-item btn btn-outline-primary" asp-action="Logout" asp-controller="Account">@Localizer["Signout"]</a>
-
-
-                <!--Menu button - show in < MD -->
-                <a class="my-2 btn btn-outline-primary menu-button" href="#">
-                    <span class="oi oi-menu" title="menu" aria-hidden="true"></span> @Localizer["Menu"]
-                </a>
+            <div class="my-2 my-md-0 mr-md-3">
+                @await Html.PartialAsync("Common/SelectLanguage")
             </div>
+
+            <!--Menu item -->
+            <div class="menu-item my-2 my-md-0 mr-md-3 dropdown">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                    @Localizer["Settings"] - @name
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" asp-controller="Manage" asp-action="Index">@Localizer["ManageProfile"]</a>
+                    <a class="dropdown-item" asp-controller="Manage" asp-action="PersonalData">@Localizer["ManagePersonalData"]</a>
+                    @if (hasExternalLogins)
+                    {
+                        <a class="dropdown-item" asp-controller="Manage" asp-action="ExternalLogins">@Localizer["ExternalLogins"]</a>
+                    }
+                    <a class="dropdown-item" asp-controller="Manage" asp-action="TwoFactorAuthentication">@Localizer["2FA"]</a>
+                    <a class="dropdown-item" asp-controller="Manage" asp-action="ChangePassword">@Localizer["ChangePassword"]</a>
+                    <a class="dropdown-item" asp-controller="Grants" asp-action="Index">@Localizer["Grants"]</a>
+                </div>
+            </div>
+
+            <a class="menu-item btn btn-outline-primary" asp-action="Logout" asp-controller="Account">@Localizer["Signout"]</a>
+
+
+            <!--Menu button - show in < MD -->
+            <a class="my-2 btn btn-outline-primary menu-button" href="#">
+                <span class="oi oi-menu" title="menu" aria-hidden="true"></span> @Localizer["Menu"]
+            </a>
+        </div>
         }
         @RenderBody()
-        @if (User.Identity.IsAuthenticated && !string.IsNullOrEmpty(name))
+        @*@if (User.Identity.IsAuthenticated && !string.IsNullOrEmpty(name))
         {
-            <footer class="pt-4 my-md-5 pt-md-5 border-top">
+            <footer class="pt-4 my-md-5 pt-md-5">
                 <div class="row margin">
                     <div class="col-6 col-md">
                         @RootConfiguration.AdminConfiguration.PageTitle
@@ -85,7 +89,7 @@
                     </div>
                 </div>
             </footer>
-        }
+        }*@
 
         <environment include="Development">
             <script src="~/dist/js/bundle.min.js" asp-append-version="true"></script>
