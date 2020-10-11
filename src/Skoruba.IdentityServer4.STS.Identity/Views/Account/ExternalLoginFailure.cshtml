@@ -4,7 +4,24 @@
     ViewData["Title"] = Localizer["Title"];
 }
 
-<header>
-    <h2>@ViewData["Title"].</h2>
-    <p class="text-danger">@Localizer["Error"]</p>
-</header>
+<main class="d-flex align-items-stretch">
+    <div class="fixed-wrap forgot-left"></div>
+    <div class="stretch-wrap">
+        <div class="logo logo__mr_bottom">
+            <img src="../dist/img/UpKeepr_Wordmark.svg" alt="">
+        </div>
+        <h5 class="text-center">@ViewData["Title"].</h5>
+        <p class="text-center regTitle text-danger">@Localizer["Error"]</p>
+        <form asp-controller="Account" asp-action="Logout" method="post">
+            <input type="hidden" name="logoutId" value="@Model.LogoutId" />
+            <div class="row row__my mx-0 align-items-center">
+                <div class="col-12 col-sm-6 px-0 pr-sm-2">
+                </div>
+                <div class="col-12 col-sm-6 px-0 pt-3 pt-sm-0 pl-sm-2">
+                </div>
+            </div>
+        </form>
+        <div class="footer-small text-center">
+        </div>
+    </div>
+</main>
