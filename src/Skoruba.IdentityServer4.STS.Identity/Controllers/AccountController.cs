@@ -5,6 +5,7 @@
 // Modified by Jan Škoruba
 
 using System;
+using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Security.Claims;
 using System.Text.Encodings.Web;
@@ -572,13 +573,31 @@ namespace Skoruba.IdentityServer4.STS.Identity.Controllers
             var result = await _userManager.CreateAsync(user, model.Password);
             if (result.Succeeded)
             {
+                if (model.FirstName != null)
+                {
+                    await _userManager.AddClaimAsync(user, new Claim(JwtClaimTypes.Name, model.FirstName));
+                }
+
+                if (model.LastName != null)
+                {
+                    await _userManager.AddClaimAsync(user, new Claim(JwtClaimTypes.FamilyName, model.LastName));
+                }
+
                 var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                 var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code }, HttpContext.Request.Scheme);
 
                 await _emailSender.SendEmailAsync(model.Email, _localizer["ConfirmEmailTitle"], _localizer["ConfirmEmailBody", HtmlEncoder.Default.Encode(callbackUrl)]);
-                await _signInManager.SignInAsync(user, isPersistent: false);
 
-                return RedirectToLocal(returnUrl);
+
+                if (await _signInManager.UserManager.IsEmailConfirmedAsync(user))
+                {
+                    await _signInManager.SignInAsync(user, isPersistent: false);
+                    return RedirectToLocal(returnUrl);
+                }
+                else
+                {
+                    return View("RegisterConfirmation");
+                }
             }
 
             AddErrors(result);
