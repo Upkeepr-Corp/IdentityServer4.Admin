@@ -632,7 +632,8 @@ namespace Skoruba.IdentityServer4.STS.Identity.Controllers
                 PhoneNumber = user.PhoneNumber,
                 IsEmailConfirmed = user.EmailConfirmed,
                 StatusMessage = StatusMessage,
-                Name = profile.FullName,
+                FirstName = profile.FirstName,
+                LastName = profile.LastName,
                 Website = profile.Website,
                 Profile = profile.Profile,
                 Country = profile.Country,
@@ -656,7 +657,8 @@ namespace Skoruba.IdentityServer4.STS.Identity.Controllers
                 PostalCode = model.PostalCode,
                 Region = model.Region,
                 Country = model.Country,
-                FullName = model.Name,
+                FirstName = model.FirstName,
+                LastName = model.LastName,
                 Profile = model.Profile
             };
 

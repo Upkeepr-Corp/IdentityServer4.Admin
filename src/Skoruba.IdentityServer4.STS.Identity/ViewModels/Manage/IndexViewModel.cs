@@ -11,6 +11,14 @@ namespace Skoruba.IdentityServer4.STS.Identity.ViewModels.Manage
         [EmailAddress]
         public string Email { get; set; }
 
+        [MaxLength(255)]
+        [Display(Name = "First name")]
+        public string FirstName { get; set; }
+
+        [MaxLength(255)]
+        [Display(Name = "Last name")]
+        public string LastName { get; set; }
+
         [Phone]
         [Display(Name = "Phone number")]
         public string PhoneNumber { get; set; }

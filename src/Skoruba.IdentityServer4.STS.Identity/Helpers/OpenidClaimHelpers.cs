@@ -52,7 +52,8 @@ namespace Skoruba.IdentityServer4.STS.Identity.Helpers
         {
             var profile = new OpenIdProfile
             {
-                FullName = claims.FirstOrDefault(x => x.Type == JwtClaimTypes.Name)?.Value,
+                FirstName = claims.FirstOrDefault(x => x.Type == JwtClaimTypes.Name)?.Value,
+                LastName = claims.FirstOrDefault(x => x.Type == JwtClaimTypes.FamilyName)?.Value,
                 Website = claims.FirstOrDefault(x => x.Type == JwtClaimTypes.WebSite)?.Value,
                 Profile = claims.FirstOrDefault(x => x.Type == JwtClaimTypes.Profile)?.Value
             };
@@ -107,9 +108,14 @@ namespace Skoruba.IdentityServer4.STS.Identity.Helpers
         {
             var claimsToRemove = new List<Claim>();
 
-            if (string.IsNullOrWhiteSpace(newProfile.FullName) && !string.IsNullOrWhiteSpace(oldProfile.FullName))
+            if (string.IsNullOrWhiteSpace(newProfile.FirstName) && !string.IsNullOrWhiteSpace(oldProfile.FirstName))
             {
-                claimsToRemove.Add(new Claim(JwtClaimTypes.Name, oldProfile.FullName));
+                claimsToRemove.Add(new Claim(JwtClaimTypes.Name, oldProfile.FirstName));
+            }
+
+            if (string.IsNullOrWhiteSpace(newProfile.LastName) && !string.IsNullOrWhiteSpace(oldProfile.LastName))
+            {
+                claimsToRemove.Add(new Claim(JwtClaimTypes.FamilyName, oldProfile.LastName));
             }
 
             if (string.IsNullOrWhiteSpace(newProfile.Website) && !string.IsNullOrWhiteSpace(oldProfile.Website))
@@ -143,9 +149,14 @@ namespace Skoruba.IdentityServer4.STS.Identity.Helpers
         {
             var claimsToAdd = new List<Claim>();
 
-            if (!string.IsNullOrWhiteSpace(newProfile.FullName) && string.IsNullOrWhiteSpace(oldProfile.FullName))
+            if (!string.IsNullOrWhiteSpace(newProfile.FirstName) && string.IsNullOrWhiteSpace(oldProfile.FirstName))
             {
-                claimsToAdd.Add(new Claim(JwtClaimTypes.Name, newProfile.FullName));
+                claimsToAdd.Add(new Claim(JwtClaimTypes.Name, newProfile.FirstName));
+            }
+
+            if (!string.IsNullOrWhiteSpace(newProfile.LastName) && string.IsNullOrWhiteSpace(oldProfile.LastName))
+            {
+                claimsToAdd.Add(new Claim(JwtClaimTypes.FamilyName, newProfile.LastName));
             }
 
             if (!string.IsNullOrWhiteSpace(newProfile.Website) && string.IsNullOrWhiteSpace(oldProfile.Website))
@@ -180,12 +191,22 @@ namespace Skoruba.IdentityServer4.STS.Identity.Helpers
             var oldProfile = ExtractProfileInfo(oldClaims);
             var claimsToReplace = new List<Tuple<Claim, Claim>>();
 
-            if (!string.IsNullOrWhiteSpace(newProfile.FullName) && !string.IsNullOrWhiteSpace(oldProfile.FullName))
+            if (!string.IsNullOrWhiteSpace(newProfile.FirstName) && !string.IsNullOrWhiteSpace(oldProfile.FirstName))
             {
-                if (newProfile.FullName != oldProfile.FullName)
+                if (newProfile.FirstName != oldProfile.FirstName)
                 {
                     var oldClaim = oldClaims.First(x => x.Type == JwtClaimTypes.Name);
-                    var newClaim = new Claim(JwtClaimTypes.Name, newProfile.FullName);
+                    var newClaim = new Claim(JwtClaimTypes.Name, newProfile.FirstName);
+                    claimsToReplace.Add(new Tuple<Claim, Claim>(oldClaim, newClaim));
+                }
+            }
+
+            if (!string.IsNullOrWhiteSpace(newProfile.LastName) && !string.IsNullOrWhiteSpace(oldProfile.LastName))
+            {
+                if (newProfile.LastName != oldProfile.LastName)
+                {
+                    var oldClaim = oldClaims.First(x => x.Type == JwtClaimTypes.FamilyName);
+                    var newClaim = new Claim(JwtClaimTypes.FamilyName, newProfile.FirstName);
                     claimsToReplace.Add(new Tuple<Claim, Claim>(oldClaim, newClaim));
                 }
             }
