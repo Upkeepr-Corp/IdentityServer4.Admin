@@ -175,6 +175,13 @@ namespace Skoruba.IdentityServer4.STS.Identity.Controllers
                     {
                         return View("Lockout");
                     }
+
+                    if (result.IsNotAllowed)
+                    {
+                        ModelState.AddModelError(string.Empty, "You cannot login until your email is confirmed");
+                        var lvm = await BuildLoginViewModelAsync(model);
+                        return View(lvm);
+                    }
                 }
                 await _events.RaiseAsync(new UserLoginFailureEvent(model.Email, "invalid credentials"));
                 ModelState.AddModelError(string.Empty, AccountOptions.InvalidCredentialsErrorMessage);
