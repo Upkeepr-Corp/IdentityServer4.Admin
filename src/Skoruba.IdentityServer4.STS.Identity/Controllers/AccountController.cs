@@ -5,6 +5,7 @@
 // Modified by Jan Škoruba
 
 using System;
+using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Security.Claims;
@@ -382,6 +383,42 @@ namespace Skoruba.IdentityServer4.STS.Identity.Controllers
             ViewData["LoginProvider"] = info.LoginProvider;
             var email = info.Principal.FindFirstValue(ClaimTypes.Email);
 
+            if (email != null)
+            {
+                var user = new TUser
+                {
+                    UserName = email,
+                    Email = email,
+                    EmailConfirmed = true
+                };
+
+                var createResult = await _userManager.CreateAsync(user);
+                if (createResult.Succeeded)
+                {
+                    var name = info.Principal.FindFirstValue(ClaimTypes.Name);
+                    if(name.Contains(" "))
+                    {
+                        List<string> names = name.Split(' ').ToList();
+                        if (names.Count() > 1)
+                        {
+                            await _userManager.AddClaimAsync(user, new Claim(JwtClaimTypes.Name, names[0]));
+                            await _userManager.AddClaimAsync(user, new Claim(JwtClaimTypes.FamilyName, names[1]));
+                        }
+                    }
+                    else
+                    {
+                        await _userManager.AddClaimAsync(user, new Claim(JwtClaimTypes.Name, name));
+                    }
+                    createResult = await _userManager.AddLoginAsync(user, info);
+                    if (createResult.Succeeded)
+                    {
+                        await _signInManager.SignInAsync(user, isPersistent: false);
+
+                        return RedirectToLocal(returnUrl);
+                    }
+                }
+            }
+
             return View("ExternalLoginConfirmation", new ExternalLoginConfirmationViewModel { Email = email });
         }
 
@@ -416,7 +453,8 @@ namespace Skoruba.IdentityServer4.STS.Identity.Controllers
                 var user = new TUser
                 {
                     UserName = model.Email,
-                    Email = model.Email
+                    Email = model.Email,
+                    EmailConfirmed = true
                 };
 
                 var result = await _userManager.CreateAsync(user);
