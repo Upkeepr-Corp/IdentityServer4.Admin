@@ -25,18 +25,18 @@
                     </div>
                 </div>
             </form>
-            <div class="footer-small text-center">
-            </div>
+           <div class="footer-small text-center">
+              
+              @if (Model.PostLogoutRedirectUri != null)
+              {
+                 <div>
+                    @Localizer["Click"] <a class="PostLogoutRedirectUri" href="@Model.PostLogoutRedirectUri">@Localizer["Here"]</a> @Localizer["Return"]
+                    <span>@Model.ClientName</span>.
+                 </div>
+              }
+           </div>
         </div>
     </main>
-
-    @if (Model.PostLogoutRedirectUri != null)
-    {
-        <div>
-            @Localizer["Click"] <a class="PostLogoutRedirectUri" href="@Model.PostLogoutRedirectUri">@Localizer["Here"]</a> @Localizer["Return"]
-            <span>@Model.ClientName</span>.
-        </div>
-    }
 
     @if (Model.SignOutIframeUrl != null)
     {
