@@ -23,6 +23,11 @@ steps:
   inputs:
     restoreSolution: '$(solution)'
 
+- task: NodeTool@0
+  inputs:
+    versionSpec: '12.x'
+  displayName: 'Ensure node version available'
+  
 - task: Npm@1
   inputs:
     command: 'install'
